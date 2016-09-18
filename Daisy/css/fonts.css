@@ -1,0 +1,23 @@
+@font-face {
+	font-family: "EncoreBold";
+	src: url("../fonts/EncoreBold/PFEncoreSansPro-Bold.eot") format("embedded-opentype"),
+			 url("../fonts/EncoreBold/PFEncoreSansPro-Bold.woff") format("woff"),
+			 url("../fonts/EncoreBold/PFEncoreSansPro-Bold.ttf") format("truetype");
+}
+@font-face {
+	font-family: "EncoreMedium";
+	src: url("../fonts/EncoreMedium/PFEncoreSansPro-Medium.eot") format("embedded-opentype"),
+			 url("../fonts/EncoreMedium/PFEncoreSansPro-Medium.woff") format("woff"),
+			 url("../fonts/EncoreMedium/PFEncoreSansPro-Medium.ttf") format("truetype");
+}
+@font-face {
+	font-family: "EncoreLight";
+	src: url("../fonts/EncoreLight/PFEncoreSansPro-Light.eot") format("embedded-opentype"),
+			 url("../fonts/EncoreLight/PFEncoreSansPro-Light.woff") format("woff"),
+			 url("../fonts/EncoreLight/PFEncoreSansPro-Light.ttf") format("truetype");
+}
+@font-face {
+	font-family: "EncoreThin";
+	src: url("../fonts/EncoreLight/PFEncoreSansPro-Light.eot") format("embedded-opentype"),
+			 url("../fonts/EncoreLight/PFEncoreSansPro-Light.woff") format("woff"),
+			 url("../fonts/EncoreLight/PFEncoreSansPro-Light.ttf") format("truetype");

@@ -1,0 +1,755 @@
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+
+
+html.js .loader {
+	background: none repeat scroll 0 0 #ffffff;
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+html.js .loader_inner {
+	background-image: url("../img/preloader.gif");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #fff;
+	height: 60px;
+	width: 60px;
+	margin-top: -30px;
+	margin-left: -30px;
+	left: 50%;
+	top: 50%;
+	position: absolute;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-size: 15px;
+	min-width: 320px;
+	line-height: 1.6;
+	font-family: "EncoreLight", sans-serif;
+	color: #c5c5c5;
+}
+h1{
+	font-family: EncoreBold, sans-serif;
+	font-size: 51px;
+	color:#fff;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0;
+}
+.color{
+	color: #fc635e;
+}
+h2{
+	font-family: EncoreMedium, sans-serif;
+	font-size: 28px;
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: 1px solid #000;
+	display: inline-block;
+	color: #565656;
+	font-weight: 100;
+
+}
+h3{
+	font-family: EncoreLight, sans-serif;
+	font-size: 24px;
+	color: #fff;
+	text-align: center;
+	font-weight: 100;
+}
+h4{
+	font-family: EncoreLight, sans-serif;
+	font-size: 20px;
+	color: #adadad;
+	text-align: center;
+	font-weight: 100;
+	margin-top: 10px;
+}
+p{
+	margin-top: 20px;
+}
+.btn{
+	padding: 10px 36px;
+	border: 2px solid #fc635e;
+	border-radius: 6px;
+	display: inline-block;
+	color: #fff;
+	display: inline-block;
+	font-family: EncoreLight, sans-serif;
+	font-size: 24px;
+	margin-top: 40px;
+	background: #fc635e;
+}
+.btn-main{
+	border: 2px solid #fc635e;
+	background: transparent;
+	color: #fc635e;
+}
+.btn-main:hover{
+	background: #fc635e;
+	color: #fff;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+	text-decoration: none;
+	background: #f34641;
+	color: #fff;
+	border-color: #f34641;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.btn:link,
+.btn:active,
+.btn:visited{
+	text-decoration: none;
+}
+
+.centred{
+	text-align: center;
+}
+/*
+=====================
+-----MAIN-SCREEN-----
+=====================
+*/
+.main-screen{
+	-webkit-background-size: cover;
+	background-size: cover;
+	min-height: 768px;
+}
+.header{
+	padding-top: 20px;
+}
+.nav-bar{
+	list-style-type: none;
+	float: right;
+	padding-right: 15px;
+}
+.nav-bar li{
+	display: inline-block;
+	margin-right: 45px;
+}
+.nav-bar li:last-child{
+	margin-right: 0;
+}
+.nav-bar li a{
+	font-family: EncoreThin;
+	font-size: 16px;
+	color: #fff;
+	text-transform: uppercase;
+	position: relative;
+	padding-bottom: 6px;
+}
+.nav-bar li a:before{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	bottom: 0;
+	left: 0;
+	background-color: #fc635e;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+.nav-bar li a:hover:before{
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+.nav-bar li a:hover{
+	text-decoration: none;
+	color: #fc635e;
+	transition: all 0.3s ease-in-out 0s;
+}
+.vertical-align{
+	padding: 21px 0;
+}
+
+
+
+/* The Overlay (background) */
+.overlay {
+	/* Height & width depends on how you want to reveal the overlay (see JS below) */    
+	height: 0;
+	width: 100%;
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	background-color: rgb(0,0,0); /* Black fallback color */
+	background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+	overflow-y: hidden; /* Disable horizontal scroll */
+	transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+	position: relative;
+	top: 25%; /* 25% from the top */
+	width: 100%; /* 100% width */
+	text-align: center; /* Centered text/links */
+	margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #818181;
+	display: block; /* Display block instead of inline */
+	transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+	color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+}
+.toggle-btn{
+	float: right;
+	padding-right: 15px;
+}
+.fa-bars{
+	color: #fff;
+	font-size: 30px;
+}
+
+/*
+----------Line H1-----------
+*/
+
+h1 .line{
+	display: inline-block;
+}
+h1 .line:before,
+h1 .line:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	border-top: 8px solid #7d7c79;
+	margin-top: .7em;
+}
+h1 .line:before {
+	margin-left: -102%;
+}
+h1 .line:after {
+	margin-left: 2%;
+}
+.main-block{
+	overflow: hidden;
+	text-align: center;
+	margin-top: 170px;
+}
+
+/*
+=====================
+-----MAIN-SCREEN-----
+=====================
+*/
+
+.WhatCanU{
+	text-align: center;
+	padding: 65px 0 95px;
+}
+.hex-icon{
+	width: 101px;
+	height: 115px;
+	background: url(../img/sprite.png);
+	text-align: center;
+	display: inline-block;
+	margin-top: 80px;
+}
+.hex-icon2{
+	background-position: 314px 0;
+}
+.hex-icon3{
+	background-position: 208px 0;
+}
+.hex-icon4{
+	background-position: 101px 0;
+}
+/*
+=====================
+-----EXSPAND YOURB---
+=====================
+*/
+.ExpandYB{
+	text-align: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.expand-contant{
+	border: 8px solid rgba(225, 225, 225, .1);
+	margin: 115px 0 95px 0;
+	padding: 115px 0 95px 0;
+}
+/*
+=====================
+-----OURPROCESS-----
+=====================
+*/
+
+.OurProcess{
+	padding: 65px 0 95px;
+	text-align: center;
+}
+.schedule{
+	margin-top: 50px;
+	text-align: center;
+	display: inline-block;
+}
+
+/*
+=====================
+-----WHATDoWD-----
+=====================
+*/
+.WhatDoWD{
+	padding: 60px 0 90px;
+	background: #f2f2f2;
+}
+.WhatDoWD .head{
+	margin-bottom: 60px;
+}
+.WhatDoWD .content h2{
+	border-bottom: none;
+	border-left: 10px solid #fc635e;
+	padding-left: 12px;
+}
+/*
+=====================
+-----WHATDoWD-----
+=====================
+*/
+.Advertising{
+	padding: 130px 0 150px;
+}
+.Advertising .content{
+	text-align: right;
+}
+.Advertising .content h2{
+	border-bottom: none;
+	border-right: 10px solid #fc635e;
+	padding-right: 12px;
+}
+/*
+=====================
+--- MARKETING KIT----
+=====================
+*/
+.MarketingKit{
+	background: #f2f2f2;
+	padding: 115px 0 100px;
+}
+.MarketingKit .content h2{
+	border-bottom: none;
+	border-left: 10px solid #fc635e;
+	padding-left: 12px;
+}
+/*
+=====================
+------PORTFOLIO------
+=====================
+*/
+
+.Portfolio{
+	text-align: center;
+	padding: 60px 0;
+}
+.Portfolio ul{
+	margin: 40px 0;
+	border-top: 1px solid #adadad;
+	border-bottom: 1px solid #adadad;
+	padding: 15px 0;
+}
+.Portfolio li {
+	font-family: EncoreLight, sans-serif;
+	font-size: 18px;
+	color: #fc635e;
+	text-align: center;
+	font-weight: 100;
+	text-transform: uppercase;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 60px;
+}
+.Portfolio .btn{
+	margin: 100px 0 30px;
+}
+.mix{
+	padding: 0;
+	display: none;
+}
+.porf-img{
+	position: relative;
+	width: 100%;
+	display: inline-block;
+	height: 262px;
+}
+.overlay-cont{
+	position: absolute;
+	background: rgba(252,96,90,0.8);
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s ease;
+	opacity: 0;
+	
+}
+.mix:hover .overlay-cont{
+	opacity: 1;
+	height: 100%;
+}
+
+.overlay-cont h1{
+	text-align: left;
+	padding: 5px 15px;
+	font-size: 30px;
+}
+.overlay-cont p{
+	font-size: 100px;
+	color: #fff;
+	font-weight: bold;
+	margin-top: -10px;
+}
+.active{
+	border-bottom: 1px solid #f34641;
+}
+/*
+=====================
+------OUR TEAM-------
+=====================
+*/
+
+.OurTeam{
+	background: #f2f2f2;
+	padding: 60px 0 90px;
+}
+
+.OurTeam .name{
+	border: none;
+	text-align: center;
+	display: inline-block;
+	text-transform: capitalize;
+	margin-top: 25px;
+}
+.block-person{
+	margin: 50px 0 25px;
+	text-align: center;
+}
+.OurTeam h3{
+	color: #565656;
+}
+.soc-icon li{
+	display: inline-block;
+	width: 38px;
+	height: 38px;
+	background: #565656;
+	border-radius: 50%;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+.soc-icon li:last-child{
+	margin-right: 0;
+}
+.soc-icon .fa{
+	color: #fff;
+	margin-top: 9px;
+	font-size: 20px;
+}
+.soc-icon .fa:hover{
+	transform: scale(1.1);
+	color: #fc635e;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.hexagon {
+	position: relative;
+	width: 150px; 
+	height: 86.60px;
+	margin: 43.30px 0;
+	background-image: url(../img/person1.jpg);
+	background-size: auto 173.2051px;
+	background-position: center;
+	text-align: left;
+}
+.hex2{
+	background-image: url(../img/person2.jpg);
+}
+.hex3{
+	background-image: url(../img/person3.jpg);
+}
+.hex4{
+	background-image: url(../img/person4.jpg);
+}
+.hexTop,
+.hexBottom {
+	position: absolute;
+	z-index: 1;
+	width: 106.07px;
+	height: 106.07px;
+	overflow: hidden;
+	-webkit-transform: scaleY(0.5774) rotate(-45deg);
+	-ms-transform: scaleY(0.5774) rotate(-45deg);
+	transform: scaleY(0.5774) rotate(-45deg);
+	background: inherit;
+	left: 21.97px;
+}
+
+/*counter transform the bg image on the caps*/
+.hexTop:after,
+.hexBottom:after {
+	content: "";
+	position: absolute;
+	width: 150.0000px;
+	height: 86.60254037844388px;
+	-webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-43.3013px);
+	-ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-43.3013px);
+	transform:          rotate(45deg) scaleY(1.7321) translateY(-43.3013px);
+	-webkit-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+	background: inherit;
+}
+
+.hexTop {
+	top: -53.0330px;
+}
+
+.hexTop:after {
+	background-position: center top;
+}
+
+.hexBottom {
+	bottom: -53.0330px;
+}
+
+.hexBottom:after {
+	background-position: center bottom;
+}
+
+.hexagon:after {
+	content: "";
+	position: absolute;
+	top: 0.0000px;
+	left: 0;
+	width: 150.0000px;
+	height: 86.6025px;
+	z-index: 2;
+	background: inherit;
+}
+.bx-wrapper{
+	margin-bottom: 240px;
+}
+
+.block-hex{
+	text-align: center;
+	display: inline-block;
+}
+
+
+/*
+=====================
+-------SLIDER--------
+=====================
+*/
+.slider{
+	text-align: center;
+}
+
+.hex-quote {
+	position: relative;
+	width: 75px; 
+	height: 43.30px;
+	background-color: #fc635e;
+	margin: 21.65px 0;
+	border-left: solid 4px #fe8286;
+	border-right: solid 4px #fe8286;
+	display: inline-block;
+}
+
+.hex-quote:before,
+.hex-quote:after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	width: 53.03px;
+	height: 53.03px;
+	-webkit-transform: scaleY(0.5774) rotate(-45deg);
+	-ms-transform: scaleY(0.5774) rotate(-45deg);
+	transform: scaleY(0.5774) rotate(-45deg);
+	background-color: inherit;
+	left: 6.9835px;
+}
+
+.hex-quote:before {
+	top: -26.5165px;
+	border-top: solid 5.6569px #fe8286;
+	border-right: solid 5.6569px #fe8286;
+}
+
+.hex-quote:after {
+	bottom: -26.5165px;
+	border-bottom: solid 5.6569px #fe8286;
+	border-left: solid 5.6569px #fe8286;
+}
+
+.block-hex-qoute {
+	margin: 50px 0 70px;
+}
+
+.block-slide p,
+.block-slide h2
+{
+	margin-top: 55px;
+}
+.fa-quote-left{
+	color: #fff;
+	font-size: 40px;
+	z-index: 10;
+	position: absolute;
+	top: 3px;
+	right: 15px;
+}
+
+.bx-wrapper .bx-viewport {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	padding-left: 8px;
+}
+.imgg{
+	margin-bottom: 15px;
+}
+.slider h3{
+	color: #818181;
+}
+
+/*
+=====================
+---------MAP---------
+=====================
+*/
+
+/* map-point */
+.hex-map {
+  position: relative;
+  width: 220px; 
+  height: 127.02px;
+  background-color: #fc635e;
+  margin: 63.51px 0;
+  border-left: solid 10px #fe8682;
+  border-right: solid 10px #fe8682;
+  display: inline-block;
+  margin-top: -80px;
+}
+
+.hex-map:before,
+.hex-map:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 155.56px;
+  height: 155.56px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 22.2183px;
+}
+
+.hex-map:before {
+  top: -77.7817px;
+  border-top: solid 14.1421px #fe8682;
+  border-right: solid 14.1421px #fe8682;
+}
+
+.hex-map:after {
+  bottom: -77.7817px;
+  border-bottom: solid 14.1421px #fe8682;
+  border-left: solid 14.1421px #fe8682;
+}
+
+.map {
+	text-align: center;
+	background: url(../img/map-footer.jpg) no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	height: 330px;
+}
+.addres{
+	position: absolute;
+	z-index: 2;
+}
+.addres h2{
+	font-size: 26px;
+	color: #fff;
+	border: none;
+}
+
+.addres h3 {
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+/*
+=====================
+-------FOOTER--------
+=====================
+*/
+
+footer{
+	background: url(../img/footer.jpg);
+	-webkit-background-size: cover;
+	background-size: cover;
+	height: 210px;
+	background-position: 50% 50%;
+	text-align: center;
+	padding-top: 75px;
+}
+
+
+
